@@ -42,6 +42,9 @@ app.get("/profile/:id", (req, res) => {profile.handleProfileGet(req, res, db );}
 // image page (version 2: using knex)
 app.put("/image", (req, res) => {image.handleImage(req, res, db);});
 
+// access API in backend to prevent our key exposed in frontend
+app.post("/imageurl", (req, res) => {image.handleApiCall(req, res);});
+
 app.listen(3000, () => {
 	console.log("app is running on port 3000");
 });
